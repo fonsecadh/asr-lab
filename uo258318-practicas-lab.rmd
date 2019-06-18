@@ -36,3 +36,19 @@ Una vez hecho esto volvemos a dejar la máquina con el kernel más actualizado.
 
 El archivo donde se encuentra el kernel es */boot/vmlinuz-3.10.0-957.21.2.e17.x86_64*
 
+### Tarea 2 - Systemd
+
+Ejecutamos el comando *ps ax* para ver la lissta de procesos. Vemos que el primero es systemd.
+Con la orden *systemctl get-default* se nos muestra el target, que vemos que es *multi-user.target*
+Para cambiar de modo utilizaremos la orden *systemctl isolate*.
+Al hacer *systemctl isolate runlevel6.target* el equipo se reinicia, ya que el runlevel número seis es el nivel de reinicio de la máquina.
+Si queremos que el sistema se inicie en un target diferente utilizaremos el comando *systemctl set-default*.
+
+El PID (Process Identifier) del proceso systemd es el PID 1.
+
+![Comando *ps ax | less*](screenshots/screenshot-04-ps_ax.png)
+
+El runlevel del sistema por defecto es el multi-user, representado por el runlevel 3. Al ejecutar el comando *systemctl isolate rescue.target* el runlevel pasa a ser el 1.
+
+Cuando el runlevel por defecto es el uno, al iniciarse el sistema se ejecuta el modo de emergencia, por lo que solo puedes loggearte como root.
+
