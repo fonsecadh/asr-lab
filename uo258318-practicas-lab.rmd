@@ -25,3 +25,14 @@ Realizamos una actualización con el comando *yum update*.
 
 Debemos cambiar la configuración del gestor de arranque GRUB para que se siga usando la versión antigua del Kernel.
 Ejecutamos el comando *grep menuentry /boot/grub2/grub.cfg* para ver las opciones de menú disponibles al botar la máquina.
+
+Una vez hecho esto, editamos (en nuestro caso con el editor *vim*) el fichero */etc/default/grub* y cambiamos la línea *GRUB_DEFAULT=saved* por *GRUB_DEFAULT=1*.
+
+![Editando */etc/default/grub* con *Vim*](screenshots/screenshot-03-vim_grub.png)
+
+Actualizamos el grub con el comando *grub2-mkconfig -o /boot/grub2/grub.cfg* y reiniciamos la máquina para comprobar que la instalación es correcta.
+
+Una vez hecho esto volvemos a dejar la máquina con el kernel más actualizado.
+
+El archivo donde se encuentra el kernel es */boot/vmlinuz-3.10.0-957.21.2.e17.x86_64*
+
