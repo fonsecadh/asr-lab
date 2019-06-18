@@ -1,6 +1,7 @@
 ---
 title: "Prácticas de laboratorio de Administración de Sistemas y Redes - UO258318"
 author: Hugo Fonseca Díaz (UO258318)
+output: pdf_document
 ---
 
 # Práctica 1
