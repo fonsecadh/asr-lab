@@ -52,3 +52,24 @@ El runlevel del sistema por defecto es el multi-user, representado por el runlev
 
 Cuando el runlevel por defecto es el uno, al iniciarse el sistema se ejecuta el modo de emergencia, por lo que solo puedes loggearte como root.
 
+Al correr el comando *systemctl isolate runlevel6.target* la máquina se reinicia.
+
+### Tarea 3 - Login desde terminales
+
+Con las teclas *ALT + FUNCION* podemos cambiar a una consola diferente. Iniciando sesión de nuevo como root en esta consola, podremos ejecutar el comando *ps ax | less* para buscar el PID del antiguo proceso del bash, y matarlo con el comando *kill -9 3438*.
+
+![Comando *kill -9 3438*](screenshots/screenshot-05-kill_9.png)
+
+Al volver a la primera consola vemos que se ha lanzado un proceso *agetty* que nos vuelve a pedir nuestro usuario y contraseña.
+
+### Tarea 4 - Syslog
+
+Ejecutamos el comando last para ver que usuarios han hecho login recientemente y los motivos de las últimas caídas del equipo.
+
+![Comando *last* (Antes de simular caída de tensión)](screenshots/screenshot-06-last.png)
+
+Apagamos de forma anómala la máquina virtual desde virtualbox. Ejecutamos el comando *last* de nuevo.
+
+![Comando *last* (Después de simular caída de tensión)](screenshots/screenshot-07-crash.png)
+
+Como vemos en la tercera entrada, según el output de la orden *last*, el ordenador se ha apagado debido a un crasheo.
