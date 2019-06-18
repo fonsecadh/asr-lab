@@ -91,3 +91,22 @@ Una vez hecho eso, abrimos una nueva terminal con *ALT + F2* y ejecutamos el com
 Como podemos observar, los dos procesos *ssh* tienen PID 3476 para la terminal *tty1* y PID 3522 para la terminal *tty2*. 
 
 El segundo proceso *sshd* de PID 3523 figura en la terminal *tty2*.
+
+### Tarea 7 - Sistemas de ficheros en red
+
+Nos descargamos *Samba* con la orden *yum install samba*, y comprobamos su manual con *man samba*.
+
+![Página de manual de *Samba*](screenshots/screenshot-10-man_samba.png)
+
+### Tarea 8 - Correo electrónico
+
+En esta tarea, con el agente de correo *mail*, debemos enviar un email a root.
+Para leerlo, deberemos ejecutar la orden *mail*, que nos muestra una lista de los mensajes, y tecleando el número del mensaje podremos leerlo.
+
+Por último, miraremos la ayuda de *mail* para encontrar el comando que nos permita salir del programa, que en este caso puede ser *quit*.
+
+![Saliendo de *mail*](screenshots/screenshot-11-mail.png)
+
+### Tarea 9 - Servicios de impresión.
+
+El *Common Unix Printing System* es un estándar de impresión para sistemas tipo UNIX. Suele ser muy utilizado en entornos GNU/Linux y similares.
