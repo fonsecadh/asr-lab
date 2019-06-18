@@ -20,6 +20,11 @@ Realizamos una actualización con el comando *yum update*.
 ![Comando yum update finalizado](screenshots/screenshot-02-yum_update.png)
 
 
+## Segunda parte: Instalación Windows 2008 R2
+
+Creamos una nueva máquina virtual con una instalación nueva de "Windows 2008 64 bits". Le asignamos al administrador la misma contraseña que tiene root en nuestra máquina CentOS, EIIASR2018$. Por último, le cambiamos el nombre al equipo por el de W2008R2 y le asignamos al grupo de trabajo AS.
+
+
 ## Tercera parte: Iniciar sesión Linux
 
 ### Tarea 1 - Kernel
