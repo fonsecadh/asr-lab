@@ -24,6 +24,8 @@ Realizamos una actualización con el comando *yum update*.
 
 Creamos una nueva máquina virtual con una instalación nueva de "Windows 2008 64 bits". Le asignamos al administrador la misma contraseña que tiene root en nuestra máquina CentOS, EIIASR2018$. Por último, le cambiamos el nombre al equipo por el de W2008R2 y le asignamos al grupo de trabajo AS.
 
+![Windows 2008 R2 instalado y configurado](screenshots/screenshot-12-winstall.png)
+
 
 ## Tercera parte: Iniciar sesión Linux
 
