@@ -73,3 +73,20 @@ Apagamos de forma anómala la máquina virtual desde virtualbox. Ejecutamos el c
 ![Comando *last* (Después de simular caída de tensión)](screenshots/screenshot-07-crash.png)
 
 Como vemos en la tercera entrada, según el output de la orden *last*, el ordenador se ha apagado debido a un crasheo.
+
+### Tarea 5 - Ejecución periódica de comandos
+
+El script encargado de borrar los ficheros con los logs más antiguos y de rotar cada día los ficheros de log se llama *logrotate*, y se encuentra en la carpeta */etc/cron.daily/*.
+
+![Script *logrotate*](screenshots/screenshot-08-logrotate.png)
+
+### Tarea 6 - Login desde Red
+
+Nos conectamos mediante *ssh* a nuestro equipo por medio de *localhost*.
+Una vez hecho eso, abrimos una nueva terminal con *ALT + F2* y ejecutamos el comando *ps ax | less*. Después, nos conectamos desde esta segunda terminal mediante *ssh* a *localhost*, y corremos de nuevo el comando *ps ax | less*.
+
+![Comando *ps ax | less* desde la conexión *ssh*](screenshots/screenshot-09-ssh_madness.png)
+
+Como podemos observar, los dos procesos *ssh* tienen PID 3476 para la terminal *tty1* y PID 3522 para la terminal *tty2*. 
+
+El segundo proceso *sshd* de PID 3523 figura en la terminal *tty2*.
