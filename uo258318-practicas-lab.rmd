@@ -1,0 +1,27 @@
+---
+title: "Prácticas de laboratorio de Administración de Sistemas y Redes - UO258318"
+author: Hugo Fonseca Díaz (UO258318)
+---
+
+# Práctica 1
+
+## Primera parte: Instalación Linux
+
+Creamos un máquina virtual de tipo "Red Hat (64 bits)", en nuestro caso la hemos llamado *CentOS-UO258318*.
+Seguimos las instrucciones del guión de la práctica, haciendo una instalación mínima, asignándole la contraseña EIIASR2018$ a root y por último creando un usuario *uo258318* con una contraseña a nuestra elección.
+
+Entramos en la máquina como root.
+
+![CentOS iniciado con sesión de root después de la instalación.](screenshots/screenshot-01-centOS_after_install.png)
+
+Realizamos una actualización con el comando *yum update*.
+
+![Comando yum update finalizado](screenshots/screenshot-02-yum_update.png)
+
+
+## Tercera parte: Iniciar sesión Linux
+
+### Tarea 1 - Kernel
+
+Debemos cambiar la configuración del gestor de arranque GRUB para que se siga usando la versión antigua del Kernel.
+Ejecutamos el comando *grep menuentry /boot/grub2/grub.cfg* para ver las opciones de menú disponibles al botar la máquina.
