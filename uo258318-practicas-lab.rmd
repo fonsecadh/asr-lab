@@ -146,3 +146,13 @@ Observamos que la máquina bota sin problemas.
 Al editar de nuevo *grub.cfg*, vemos que el nombre del kernel sigue siendo erróneo, esto se debe a que lo que hemos cambiado previamente ha sido lo que GRUB tenía cargado en memoria, no el propio archivo de configuración.
 
 ![Editando *grub.cfg*](screenshots/screenshot-14-grub_not_changed.png)
+
+
+## B. Instalación de Linux con particionamiento estático
+
+### Particionamiento manual
+
+En esta tarea deberemos crear una nueva máquina virtual con las especificaciones vistas en la práctica 1. Esta nueva máquina tendrá dos discos, cuyas particiones quedarán de la forma que observamos en la captura.
+
+![Particionamiento](screenshots/screenshot-15-part_manual.png)
+
