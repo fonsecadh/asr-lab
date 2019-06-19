@@ -164,3 +164,30 @@ Una vez instalado, ejecutaremos los comandos *df -Th* y *lsblk*, cuyo output se 
 
 Ahora debemos crear un tercer disco desde virtualbox con el sistema apagado.
 
+El nombre del fichero de dispositivo del nuevo disco será *sdc*.
+
+#### Uso de fdisk
+
+Al correr la orden *fdisk /dev/sdc* se nos muestra un mensaje de error advirtiéndonos de que el dispositivo no cuenta con una tabla de particiones.
+
+Después de crear las particiones correspondientes, el output de *fdisk* con el parámetro *p* se visualiza en la siguiente imagen.
+
+#### Creación del filesystem: mkfs
+
+Ejecutaremos el comando *mkfs /dev/sdc1* para crear un sistema de archivos de tipo *ext2* en la partición de 512 MB del disco.
+
+Una vez hecho esto, crearemos una etiqueta para esta partición usando la orden *e2label /dev/sdc1 primpart*, siendo *primpart la etiqueta que le hemos asignado.
+
+Por último, con la orden *tune2fs -j /dev/sdc1* creamos el archivo de journal y hacemos que el filesystem sea dde tipo *ext3*.
+
+Repetimos ahora el proceso para las otras particiones.
+
+A la hora de ejecutar el comando *mkfs /dev/stc2* el sistema nos muestra un error debido a que esta partición es de tipo extendida, y es la que contiene las últimas dos particiones.
+
+Para estas últimas dos particiones, los comandos que he utilizado son los siguientes.
+
+Para *sd5*, *mkfs /dev/stc5*, *e2label /dev/sdc5 part1logical* y *tune2fs -j /dev/sdc5*.
+
+Para *sd6*, *mkfs /dev/stc6*, *e2label /dev/sdc6 part2logical* y *tune2fs -j /dev/sdc6*.
+
+
