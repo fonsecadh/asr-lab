@@ -152,7 +152,15 @@ Al editar de nuevo *grub.cfg*, vemos que el nombre del kernel sigue siendo erró
 
 ### Particionamiento manual
 
-En esta tarea deberemos crear una nueva máquina virtual con las especificaciones vistas en la práctica 1. Esta nueva máquina tendrá dos discos, cuyas particiones quedarán de la forma que observamos en la captura.
+En esta tarea deberemos crear una nueva máquina virtual con las especificaciones vistas en la práctica 1. Esta nueva máquina tendrá dos discos, cuyas particiones quedarán de la forma que observamo en la siguiente captura.
 
 ![Particionamiento](screenshots/screenshot-15-part_manual.png)
+
+Una vez instalado, ejecutaremos los comandos *df -Th* y *lsblk*, cuyo output se muestra en la siguiente imagen.
+
+![Output de los comandos *df -Th* y *lsblk*](screenshots/screenshot-16-partitions.png)
+
+### Adición de un tercer disco a un sistema ya instalado
+
+Ahora debemos crear un tercer disco desde virtualbox con el sistema apagado.
 
