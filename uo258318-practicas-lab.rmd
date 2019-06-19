@@ -215,3 +215,12 @@ La secuencia de pasos es la siguiente:
 - Orden *umount /mnt/kanbaru*
 - Orden *mkfs /dev/sdc5 -t msdos*
 - Orden *mkfs /dev/sdc6 -t vfat*
+
+
+## C. Instalación de Linux con particionamiento dinámico
+
+Reinstalamos un linux sobre LVM en la máquina usada previamente en esta práctica. El resultado del particionamiento lo podremos visualizar en la siguiente captura.
+
+![Particionamiento de la nueva instalación](screenshots/screenshot-19-lvm-installation.png)
+
+
