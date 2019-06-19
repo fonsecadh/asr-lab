@@ -219,8 +219,34 @@ La secuencia de pasos es la siguiente:
 
 ## C. Instalación de Linux con particionamiento dinámico
 
+### Part 1
+
 Reinstalamos un linux sobre LVM en la máquina usada previamente en esta práctica. El resultado del particionamiento lo podremos visualizar en la siguiente captura.
 
-![Particionamiento de la nueva instalación](screenshots/screenshot-19-lvm-installation.png)
+![Particionamiento de la nueva instalación](screenshots/screenshot-19-lvm_installation.png)
 
+Una vez instalado, se nos manda ejecutar la orden *df* y mostrar el resultado, que se puede observar en esta imagen.
 
+![Output del comando *df*](screenshots/screenshot-20-df_output.png)
+
+### Part 2
+
+En esta parte, tendremos que asignarle el espacio del tercer disco duro al volumen lógico que está montado en */home*.
+
+Debemos hacer los siguientes pasos:
+
+- Orden *fdisk /dev/sdc*
+- Parámetro *d* y el número de la partición a eliminar. Hacemos esto con todas las particiones
+- Parámetro *n* y todas las opciones por defecto para crear una nueva partición que ocupe todo el disco
+- Parámetro *t* con código *8e* para darle a la partición el tipo *Linux LVM*
+- Orden *pvcreate /dev/sdc1*
+- Orden *vgscan*
+- Orden *vgextend centos /dev/sdc1*
+- Demontamos */home* con la orden *umount /home*
+- Orden *lvextend -L +512M /dev/centos/home*
+- Montamos */home* de nuevo con la orden *mount /dev/centos/home /home*
+- Orden *xfs_growfs -d /home*
+
+El output de los comandos *pvscan*, *lvscan*, *df /home* es el siguiente.
+
+![Output de los comandos *pvscan*, *lvscan*, *df /home*](screenshots/screenshot-21-part2_orders.png)
