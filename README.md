@@ -1,2 +1,2 @@
 # asr-lab
-Laboratory practices of the subject of ASR.
+Repository for the Laboratory Practices of the Administration of Systems and Networks subject.
