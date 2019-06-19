@@ -172,6 +172,8 @@ Al correr la orden *fdisk /dev/sdc* se nos muestra un mensaje de error advirtié
 
 Después de crear las particiones correspondientes, el output de *fdisk* con el parámetro *p* se visualiza en la siguiente imagen.
 
+![Output de *fdisk* con el parámetro *p*](screenshots/screenshot-17-fdisk_p.png)
+
 #### Creación del filesystem: mkfs
 
 Ejecutaremos el comando *mkfs /dev/sdc1* para crear un sistema de archivos de tipo *ext2* en la partición de 512 MB del disco.
@@ -186,8 +188,30 @@ A la hora de ejecutar el comando *mkfs /dev/stc2* el sistema nos muestra un erro
 
 Para estas últimas dos particiones, los comandos que he utilizado son los siguientes.
 
-Para *sd5*, *mkfs /dev/stc5*, *e2label /dev/sdc5 part1logical* y *tune2fs -j /dev/sdc5*.
+Para *sd5*, *mkfs /dev/sdc5*, *e2label /dev/sdc5 part1logical* y *tune2fs -j /dev/sdc5*.
 
-Para *sd6*, *mkfs /dev/stc6*, *e2label /dev/sdc6 part2logical* y *tune2fs -j /dev/sdc6*.
+Para *sd6*, *mkfs /dev/sdc6*, *e2label /dev/sdc6 part2logical* y *tune2fs -j /dev/sdc6*.
 
+#### Montaje del filesystem: mount, /etc/fstab
 
+Después de montar los filesystems, el output de la orden *mount* es el que podemos observar en la siguiente captura.
+
+![Output del comando *mount*](screenshots/screenshot-18-mount_output.png)
+
+El sistema de archivos de */dev/sdc1* es de tipo *ext3* y el de */dev/sda1* es de tipo *xfs*.
+
+Para terminar, se nos manda cambiar el tipo de partición de Linux a FAT32 en las dos unidades lógicas, y crear filesystems de tipo *msdos* y *vfat* en ambas.
+
+La secuencia de pasos es la siguiente:
+
+- Orden *fdisk /dev/sdc*
+- Parámetro *p* para listar las particiones
+- Parámetro *t* para cambiar el tipo de partición
+- Elegimos el número de la partición que deseamos modificar, ya sea la número 5 o la 6
+- Parámetro *b*, que identifica a FAT32
+- Parámetro *w* para escribir los cambios en disco
+- Instalamos el paquete *dosfstools* con la orden *yum install dosfstools*
+- Orden *umount /mnt/asuka*
+- Orden *umount /mnt/kanbaru*
+- Orden *mkfs /dev/sdc5 -t msdos*
+- Orden *mkfs /dev/sdc6 -t vfat*
