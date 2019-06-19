@@ -117,3 +117,32 @@ Por último, miraremos la ayuda de *mail* para encontrar el comando que nos perm
 ### Tarea 9 - Servicios de impresión.
 
 El *Common Unix Printing System* es un estándar de impresión para sistemas tipo UNIX. Suele ser muy utilizado en entornos GNU/Linux y similares.
+
+
+
+# Práctica 2
+
+## A. Recuperación básica de errores durante el inicio
+
+### 1.
+
+Editamos el fichero */boot/grub2/grub.cfg* y buscamos la primera aparición de la palabra *linux16*. Después, cambiaremos el nombre al archivo *vmlinuz* y lo sustituiremos por *vmlinux*. Al rebotar la máquina observaremos cómo el sistema nos muestra un error advirtiéndonos de que el archivo con el nuevo nombre no existe.
+
+### 2.
+
+Introducimos el disco de instalación y botamos en modo de rescate. Corremos la orden *chroot /mnt/sysimage* y corregimos el fichero *grub.cfg*.
+
+![Modo de rescate](screenshots/screenshot-13-rescue.png)
+
+Apagamos el equipo y extraemos el disco de instalación. Al arrancarlo la primera vez el sistema no llegó a botar correctamente y se nos devuelve al menú de GRUB, pero en esta seguna ocasión la máquina inicia sin problemas y se nos pide el usuario y contraseña como es habitual.
+
+### 3.
+
+Volvemos a editar *grub.cfg* y realizamos el cambio de nombre *vmlinuz* por *vmlinux*. Rebotamos, y en esta ocasión editamos el nombre del kernel desde el propio GRUB.
+Observamos que la máquina bota sin problemas.
+
+### 4.
+
+Al editar de nuevo *grub.cfg*, vemos que el nombre del kernel sigue siendo erróneo, esto se debe a que lo que hemos cambiado previamente ha sido lo que GRUB tenía cargado en memoria, no el propio archivo de configuración.
+
+![Editando *grub.cfg*](screenshots/screenshot-14-grub_not_changed.png)
