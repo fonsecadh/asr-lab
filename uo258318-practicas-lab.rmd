@@ -289,4 +289,24 @@ El output de la orden *mdadm --detail /dev/md127* muestra lo siguiente.
 
 ![Output del comando *mdadm --detail /dev/md127* después de añadir la partición como *hotspare*](screenshots/screenshot-29-hotspare.png)
 
+En esta ocasión simularemos un fallo en el RAID 5.
+Para ello, le indicaremos a la máquina que ha habido un fallo en la partición del disco *sdc*, usando el comando *mdadm --manage /dev/md126 --fail /dev/sdc3*.
+Al ejecutar la orden *mdadm --detail /dev/md126* obtendremos la siguiente información.
+
+![Output del comando *mdadm --detail /dev/md126* después del fallo en el disco *sdc*](screenshots/screenshot-30-md126_after_sdc_fail.png)
+
+Ahora, simularemos que el disco que ha fallado se reemplaza por un disco nuevo, inicializando la partición con *mkfs*.
+
+Lo primero será eliminar el disco del array con la orden *mdadm --manage /dev/md126 --remove /dev/sdc3*.
+Después, ejecutaremos el comando *mkfs /dev/sdc3* para simular que hemos comprado un disco nuevo.
+
+Corremos la orden *mdadm -a /dev/md126 /dev/sdc3* para añadir el nuevo disco de igual modo que hemos hecho con el RAID 1.
+Al ejecutar la orden *mdadm --detail /dev/md126* al instante vemos que el estado de la partición *sdc3* figura como *spare rebuilding*, como podemos comprobar en la siguiente captura.
+
+![Output del comando *mdadm --detail /dev/md126* justo después de ejecutar la orden *mdadm -a /dev/md126 /dev/sdc3*](screenshots/screenshot-31-spare_rebuilding.png)
+
+Esperamos unos minutos y volvemos a ejecutar la orden *mdadm --detail /dev/md126*, para comprobar que el estado de la partición *sdc3* pasa a figurar como *active sync*, como se observa en la siguiente imagen.
+
+![Output del comando *mdadm --detail /dev/md126* unos minutos después de ejecutar la orden *mdadm -a /dev/md126 /dev/sdc3*](screenshots/screenshot-32-active_sync.png)
+
 
