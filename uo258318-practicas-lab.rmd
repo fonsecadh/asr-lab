@@ -310,3 +310,50 @@ Esperamos unos minutos y volvemos a ejecutar la orden *mdadm --detail /dev/md126
 ![Output del comando *mdadm --detail /dev/md126* unos minutos después de ejecutar la orden *mdadm -a /dev/md126 /dev/sdc3*](screenshots/screenshot-32-active_sync.png)
 
 
+## E. Administración de discos Windows
+
+En esta última parte, trabajaremos con nuestra máquina Windows Server 2008.
+
+Lo primero que se nos pide es hacer una consola personalizada y guardarla como *MiConsola01.msc*.
+
+![*MiConsola01.msc*](screenshots/screenshot-33-mysuperconsole.png)
+
+Después, tendremos que añadir dos discos de 4GB a la máquina virtual.
+
+Desde la consola de *Administración de equipos*, inicializamos ambos discos como discos básicos, como vemos en la imagen.
+
+![Discos inicializados](screenshots/screenshot-34-initialized_discs.png)
+
+En el primer disco, hacemos una única partición y la formateamos como NTFS.
+
+![Disco 1 particionado](screenshots/screenshot-35-disk1.png)
+
+En el segundo disco, hacemos dos particiones de igual tamaño y formateadas como FAT32.
+
+![Disco 2 particionado](screenshots/screenshot-36-disks_2and3.png)
+
+Convertimos los dos discos en discos dinámicos.
+
+![Discos dinámicos](screenshots/screenshot-37-dynamic.png)
+
+Convertimos el disco de sistema a un disco dinámico.
+
+![Disco de sistema dinámico](screenshots/screenshot-38-disaster.png)
+
+Eliminamos la partición del disco uno y las dos del segundo disco.
+
+![Particiones eliminadas](screenshots/screenshot-39-emptyness.png)
+
+Creamos un volumen simple en el disco 1 y otro en el disco 2, ambos formateados como NTFS.
+
+![Volúmenes simples en NTFS](screenshots/screenshot-40-simple_disks.png)
+
+Eliminamos ambos volúmenes simples y los unimos con volúmenes distribuidos. Esta nueva unidad tendrá *8GB* de capacidad.
+
+![Volúmenes distribuidos](screenshots/screenshot-41-distributed_disks.png)
+
+Para finalizar, eliminamos el volumen distribuido y unimos ambos discos con volúmenes distribuidos en un volumen reflejado (RAID1). Esta nueva unidad tiene *4GB* de capacidad.
+
+![Volumen reflejado](screenshots/screenshot-42-reflected.png)
+
+
