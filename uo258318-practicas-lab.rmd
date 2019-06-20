@@ -267,4 +267,26 @@ El output de los comandos *df*, *mdadm --detail /dev/md126* y *mdadm --detail /d
 
 ![Output del comando *mdadm --detail /dev/md127*](screenshots/screenshot-25-mdadm_md127.png)
 
+En nuestro caso el RAID montado */boot* se llama */dev/md127* y el montado en */* se llama */dev/md126*.
+
+Indicamos que ha habido un fallo en la partición del disco *sdc* usada en el RAID1 con la orden *mdadm --manage /dev/md127 --fail /dev/sdc2*.
+Ejecutamos el comando *mdadm --detail /dev/md127*, que nos devuelve el siguiente resultado.
+
+![Output del comando *mdadm --detail /dev/md127* después del fallo del disco *sdc*](screenshots/screenshot-26-after_disc_failure.png)
+
+Eliminamos el disco fallido con la orden *mdadm --manage /dev/md127 --remove /dev/sdc2*.
+Ejecutamos la orden *mdadm --detail /dev/md127*, que nos muestra lo siguiente.
+
+![Output del comando *mdadm --detail /dev/md127* después de eliminar el disco *sdc*](screenshots/screenshot-27-after_disc_removal.png)
+
+A continuación redimensionamos el RAID a tamaño 2 con la orden *mdadm --grow /dev/md127 --raid-devices=2*.
+Al correr el comando *mdadm --detail /dev/md127* obtendremos el siguiente resultado.
+
+![Output del comando *mdadm --detail /dev/md127* después de redimensionar el RAID](screenshots/screenshot-28-after_raid_redimensioning.png)
+
+Añadimos la partición del disco *sdc* como *hotspare*, utilizando la orden *mdadm -a /dev/md127 /dev/sdc2*.
+El output de la orden *mdadm --detail /dev/md127* muestra lo siguiente.
+
+![Output del comando *mdadm --detail /dev/md127* después de añadir la partición como *hotspare*](screenshots/screenshot-29-hotspare.png)
+
 
