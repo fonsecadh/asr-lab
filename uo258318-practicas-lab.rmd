@@ -250,3 +250,21 @@ Debemos hacer los siguientes pasos:
 El output de los comandos *pvscan*, *lvscan*, *df /home* es el siguiente.
 
 ![Output de los comandos *pvscan*, *lvscan*, *df /home*](screenshots/screenshot-21-part2_orders.png)
+
+
+## D. Instalación de Linux con RAID y recuperación ante fallos
+
+Reinstalamos un Linux sobre RAID en la máquina que se ha estado utilizando.
+Su particionamiento lo podremos contemplar en la siguiente imagen.
+
+![Particionamiento de la nueva instalación](screenshots/screenshot-22-raid_part.png)
+
+El output de los comandos *df*, *mdadm --detail /dev/md126* y *mdadm --detail /dev/md127* es el siguiente.
+
+![Output del comando *df*](screenshots/screenshot-23-df_output.png)
+
+![Output del comando *mdadm --detail /dev/md126*](screenshots/screenshot-24-mdadm_md126.png)
+
+![Output del comando *mdadm --detail /dev/md127*](screenshots/screenshot-25-mdadm_md127.png)
+
+
