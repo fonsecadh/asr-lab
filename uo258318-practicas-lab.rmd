@@ -469,4 +469,9 @@ Luego, editaremos el archivo */etc/dhcp/dhcp.conf* para añadirle nuevo contenid
 
 Una vez editado, tendremos que arrancar el servicio *dhcpd* con la orden *systemctl start dhcpd.service*, y hacer que se arranque por defecto al iniciar el sistema con la orden *systemctl enable dhcpd.service*.
 
+Reiniciamos las máquinas Windows y les asignamos como servidor DNS la máquina Linux.
+Al hacerlo, veremos que las máquinas Windows tienen IPs dentro de la red que hemos creado.
 
+Las máquinas Windows no tienen conectividad con el exterior, pero sí con la máquina Linux.
+
+Las máquinas Windows no tienen conexión a Internet ya que aunque la máquina Linux ofrece el servicio de DNS, no tiene la información de los nombres de dominio.
