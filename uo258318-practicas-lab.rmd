@@ -475,3 +475,8 @@ Al hacerlo, veremos que las máquinas Windows tienen IPs dentro de la red que he
 Las máquinas Windows no tienen conectividad con el exterior, pero sí con la máquina Linux.
 
 Las máquinas Windows no tienen conexión a Internet ya que aunque la máquina Linux ofrece el servicio de DNS, no tiene la información de los nombres de dominio.
+
+Al ejecutar la orden *nslookup horru.lsi.uniovi.es*, podemos observar que se resuelve el nombre correctamente.
+
+Si quisiésemos que la máquina WXP pudiera conocer que la dirección de *horru.lsi.uniovi.es* es *156.35.119.120*, tendríamos que modificar el archivo de configuración de *dhcp* del servidor Linux. 
+Si tuviéramos que hacerlo sin modificar este archivo, podríamos solicitar la resolución de nombres a un servidor público.
