@@ -419,3 +419,27 @@ Para finalizar se nos pide capturar el output de los comandos *lsblk -f* y *df -
 ![Output de los comandos *lsblk -f* y *df -Th*](screenshots/screenshot-47-final_output.png)
 
 
+
+# Práctica 4
+
+Configuración de una intranet con un servidor Linux
+
+## Primera parte. Conectividad
+
+Creamos una red anfitrión en VirtualBox y configuramos la red de la máquina Windows XP y Windows 2008 para asignarles la red que hemos creado.
+
+Comprobamos que ambas máquinas reciben una dirección IP automáticamente.
+
+Configuramos la máquina de CentOS utilizada en la primera práctica de tal forma que tenga dos adaptadores.
+El primero tipo *NAT* y el segundo de *solo anfitrión*.
+
+Ahora configuraremos esta máquina realizando los siguientes pasos:
+
+- Ejecutamos la orden *uuidgen enp0s8*, que nos devuelve la string *35aa7759-d492-4bf9-9f61-9b23ad0cc62c*.
+- Al introducir el comando *ip addr show* comprobaremos que tenemos dos interfaces de red, uno llamado *enp0s3* y otro *enp0s8*.
+- Vamos al directorio */etc/sysconfig/network-scripts*.
+- Copiamos el archivo *ifcfg-enp0s3* a *ifcfg-enp0s8*
+- Editamos *ifcfg-enp0s8* para cambiar *enp0s3* por *enp0s8*.
+- Cambiamos en ese archivo el campo *UUID* por la string anotada previamente.
+
+
