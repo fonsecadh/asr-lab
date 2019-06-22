@@ -440,6 +440,18 @@ Ahora configuraremos esta máquina realizando los siguientes pasos:
 - Vamos al directorio */etc/sysconfig/network-scripts*.
 - Copiamos el archivo *ifcfg-enp0s3* a *ifcfg-enp0s8*
 - Editamos *ifcfg-enp0s8* para cambiar *enp0s3* por *enp0s8*.
-- Cambiamos en ese archivo el campo *UUID* por la string anotada previamente.
+- Cambiamos en ese archivo el parámetro *UUID* por la string anotada previamente.
+- Comprobamos que tanto en *ifcfg-enp0s3* campo*ifcfg-enp0s8* el parámetro *ONBOOT* debe campo.
+- Reiniciamos el servicio de red con *systemctl restart network.service*.
+
+Hecho esto, pasamos a la máquina Windows 2008, cuya dirección *IP* es *192.168.56.102*. No tiene asociadas *DNS*, puerta de enlace ni ruta por defecto.
+Tampoco podemos observar otros equipos en la red, ya que no tenemos *DNS* asignado.
+
+La máquina Linux si tiene acceso a Internet ya que cuenta con un adaptador *NAT*.
+
+Instalamos el paquete *bind-utils* con la orden *yum install bind-utils*, y ejecutamos el comando *nslookup horru.lsi.uniovi.es*.
+Con esto comprobaremos que Linux sí puede resolver nombres, siendo el DNS *212.89.28.19*.
+
+Ahora, deberemos añadirle un servidor secundario *156.35.14.2*, editando el archivo */etc/resolv.conf* y añadiendo la línea "nameserver 8.8.8.8".
 
 
