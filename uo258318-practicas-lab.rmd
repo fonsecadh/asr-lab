@@ -503,3 +503,5 @@ Para ello, realizaremos las siguientes acciones:
 - Habilitaremos el reenvío de paquetes (enrutamiento) entre interfaces en la máquina Linux. Para ver si ya está habilitado ejecutaremos la orden *systctl net.ipv4.ip_forward*. Como la salida es 0 deberemos crear el archivo */etc/sysct1.d/50-router.conf*, con la línea "net.ipv4.ip_forward=1". Una vez hecho eso, reiniciaremos el servicio de red con la orden *systemctl restart network.service*
 - Habilitamos el enmascaramiento IP pasando el segundo adaptador a la zona interna del cortafuegos y activando el enmascarado en la zona pública.
 
+Comprobamos que en las máquinas Windows podemos hacer *ping* al servidor de nombres 8.8.8.8, pero al hacerlo con *www.google.es* se nos muestra un mensaje advirtiéndonos de que no se puede encontrar el nombre *www.google.es*.
+ 
