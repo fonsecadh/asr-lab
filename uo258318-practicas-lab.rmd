@@ -480,3 +480,10 @@ Al ejecutar la orden *nslookup horru.lsi.uniovi.es*, podemos observar que se res
 
 Si quisiésemos que la máquina WXP pudiera conocer que la dirección de *horru.lsi.uniovi.es* es *156.35.119.120*, tendríamos que modificar el archivo de configuración de *dhcp* del servidor Linux. 
 Si tuviéramos que hacerlo sin modificar este archivo, podríamos solicitar la resolución de nombres a un servidor público.
+
+Le indicamos al servidor DHCP que se debe encargar de proporcionar a las máquinas cliente la dirección del servidor de nombres 8.8.8.8.
+Para ello haremos los siguientes pasos:
+
+- Editamos el archivo */etc/dhcp/dhcpd.conf* y le añadimos la línea *option domain-name-servers 8.8.8.8;*,debajo de *option subnet-mask 255.255.255.0;*.
+
+- Reiniciamos el servicio *dhcp* con la orden *systemctl restart dhcpd.service*.
