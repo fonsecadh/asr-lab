@@ -455,3 +455,18 @@ Con esto comprobaremos que Linux sí puede resolver nombres, siendo el DNS *212.
 Ahora, deberemos añadirle un servidor secundario *156.35.14.2*, editando el archivo */etc/resolv.conf* y añadiendo la línea "nameserver 8.8.8.8".
 
 
+## Segunda parte. Servidor DHCP.
+
+Apagamos todas las máquinas virtuales y cambiamos los interfaces de red que estaban en modo *solo anfitrión* a *red interna*. Esto conlleva que el equipo anfitrión ya no forme parte de la red interna.
+
+Arrancamos la máquina Linux. Se nos pide que el interfaz *enp0s8* tenga dirección IP estática *192.168.56.100*, con máscara *255.255.255.0*.
+Para ello deberemos editar el archivo *ifcfg-enp0s8* y reiniciar la red.
+
+A continuación instalaremos un servidor DHCP que proporcione direcciones a las dos máquinas virtuales Windows.
+
+Para ello, lo primero será instalar el paquete *dhcp* con la orden *yum install dhcp*.
+Luego, editaremos el archivo */etc/dhcp/dhcp.conf* para añadirle nuevo contenido.
+
+Una vez editado, tendremos que arrancar el servicio *dhcpd* con la orden *systemctl start dhcpd.service*, y hacer que se arranque por defecto al iniciar el sistema con la orden *systemctl enable dhcpd.service*.
+
+
