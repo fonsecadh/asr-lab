@@ -487,3 +487,15 @@ Para ello haremos los siguientes pasos:
 - Editamos el archivo */etc/dhcp/dhcpd.conf* y le añadimos la línea *option domain-name-servers 8.8.8.8;*,debajo de *option subnet-mask 255.255.255.0;*.
 
 - Reiniciamos el servicio *dhcp* con la orden *systemctl restart dhcpd.service*.
+
+Ahora, reparamos la conexión de las máquinas Windows y ejecutamos la orden *ipconfig /all*, que nos devuelve la siguiente información.
+
+![Output del comando *ipconfig /all*](screenshots/screenshot-48-ip_config_all.png)
+
+No se puede resolver la dirección de *www.google.es* porque la propia intranet no tiene conexión a Internet.
+
+
+## Tercera parte. Uso de Linux como enrutador.
+
+
+
