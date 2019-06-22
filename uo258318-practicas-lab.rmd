@@ -357,3 +357,65 @@ Para finalizar, eliminamos el volumen distribuido y unimos ambos discos con vol�
 ![Volumen reflejado](screenshots/screenshot-42-reflected.png)
 
 
+
+# Práctica 3
+
+## A. Backup de un sistema en modo multiusuario mediante snapshots LVM
+
+Lo primero que tendremos que hacer será crear una nueva máquina virtual con CentOS 7, que tendrá dos discos.
+En el primero se deberá realizar una instalación mínima, dejando al segundo disco libre.
+
+![Nueva máquina CentOs después de la instalación](screenshots/screenshot-43-after_install.png)
+
+Instalamos el paquete *udev*.
+
+A continuación, modificamos el archivo */etc/issue* añadiendo la frase "Copia de Seguridad practicas AS 2018".
+
+Al salir de la sesión, vemos que el mensaje que acabamos de introducir aparece.
+
+![Nueva máquina CentOs después de la instalación](screenshots/screenshot-44-issue.png)
+
+Ahora, se nos pide asignar todo el espacio del segundo disco a una única partición y a crear un filesystem en ella.
+
+Utilizaremos los siguientes comandos:
+
+    fdisk /dev/sdb  # Creamos una nueva partición con n y escribimos en disco con w
+    mkfs /dev/sdb1
+    mkdir /mnt/backup
+    mount /dev/sdb1 /mnt/backup    
+
+Creamos un archivo de 1Gb en */mnt/backup* con la orden *dd if=/dev/zero of=/mnt/backup/imagen_snapshot bs=1024 count=1M*.
+
+Añadimos la imagen que acabamos de crear al interfaz loopback con la orden *losetup -f /mnt/backup/imagen_snapshot*.
+
+Comprobamos con *losetup -a* que el nombre del dispositivo loop creado es */dev/loop0*.
+
+Creamos un volumen físico en */dev/loop0* con la orden *pvcreate /dev/loop0*.
+
+Lo añadimos al grupo de volúmenes *centos* usando el comando *vgextend centos /dev/loop0*.
+
+Creamos un snapshot de un tamaño que sea suficiente, con la orden *lvcreate -L1000M -s -n backupAS /dev/centos/root*.
+
+Comprobamos que todo esta correcto con el comando *lvs*.
+
+![Output del comando *lvs*](screenshots/screenshot-45-lvs.png)
+
+Creamos el punto de montaje */mnt/snapshot* y montamos el snapshot */dev/centos/backupAS* en él con el comando *mount -o nouuid /dev/centos/backupAS /mnt/snapshot*.
+
+Editamos de nuevo el archivo */etc/issue* y lo dejamos como estaba. Comprobamos que la versión del snapshot, que se encuentra en */mnt/snapshot/etc/issue*, no cambia, como podemos ver en la captura.
+
+![Output del comando *cat /mnt/snapshot/etc/issue*](screenshots/screenshot-46-freeze.png)
+
+Por último, tendremos que hacer un backup de todos los archivos del snapshot, con la orden *tar -cvpzf /mnt/backup/backup.tgz /mnt/snapshot*.
+
+No se puede hacer un backup de los directorios */proc* y */dev* del snapshot. 
+*/proc* solo existe en la memoria del sistema, es decir, no existe en disco.
+*/dev* son los dispositivos de la máquina en el instante de la copia, así que no tendría sentido que se guardaran junto a los otros datos.
+
+Sí se podría hacer un tar de los directorios */proc* y */dev* del sistema, ya que son simplemente directorios con ficheros.
+
+Para finalizar se nos pide capturar el output de los comandos *lsblk -f* y *df -Th*.
+
+![Output de los comandos *lsblk -f* y *df -Th*](screenshots/screenshot-47-final_output.png)
+
+
