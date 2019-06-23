@@ -578,3 +578,17 @@ Entramos en el servidor DHCP (W2008), y comprobamos que ahora la máquina WXP ap
 
 ![WXP y Linux en la lista de concesiones](screenshots/screenshot-55-wxp_from_w2008.png)
 
+
+## Tercera parte. Uso de W2008 como enrutador.
+
+En esta parte vamos a dar acceso a Internet a la red *192.168.56.0*. Para ello utilizaremos el servicio "Enrutamiento y Acceso Remoto" de Windows 2008 y haremos como traductor de direcciones (NAT).
+
+Agregamos en W2008 el rol *Servicios de acceso y directivas de redes*, y lo configuramos para que la dirección pública para conectarse a Internet sea *10.0.2.15*.
+
+Rebotamos las máquinas WXP y Linux y anotamos sus tablas de rutas.
+
+![Rutas de WXP](screenshots/screenshot-56-route_wxp_after_routing.png)
+
+![Rutas de Linux](screenshots/screenshot-57-route_linux_after_routing.png)
+
+Ninguna de las dos máquinas tiene salida al exterior ya que no hemos configurado correctamente la ruta por defecto.
