@@ -564,4 +564,17 @@ Entramos en el servidor DHCP (W2008), y comprobamos que efectivamente está Linu
 
 ![Linux en la lista de concesiones](screenshots/screenshot-53-linux_from_w2008.png)
 
+Arrancamos WXP e indicamos en las propiedades de su interfaz de red que reciba una dirección IP y un DNS automáticamente.
+
+Ejecutamos la orden *route print* que nos devuelve la siguiente información.
+
+![Rutas de Windows después de que reciba una dirección de un servidor DHCP](screenshots/screenshot-54-route_wxp_after_dhcp.png)
+
+No tenemos salida al exterior desde WXP ya que el servidor W2008 no proporciona servicios de enrutamiento.
+
+Podemos a pesar de ello conectarnos a la dirección IP *192.168.56.100* desde WXP ya que es la dirección de la máquina W2008 que le proporciona a WXP servicio DHCP.
+
+Entramos en el servidor DHCP (W2008), y comprobamos que ahora la máquina WXP aparece junto a la máquina Linux en la lista de concesiones, como se puede ver en la captura.
+
+![WXP y Linux en la lista de concesiones](screenshots/screenshot-55-wxp_from_w2008.png)
 
