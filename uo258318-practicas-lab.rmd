@@ -533,4 +533,14 @@ Para asignarle la dirección IP estática a Linux, tendremos que seguir los sigu
 
 Hacemos ping entre las tres máquinas, y observamos que recibimos respuesta al hacer ping entre W2008 y WXP y viceversa, entre W2008 y Linux y viceversa, y entre las máquinas WXP y Linux.
 
+Anotamos ahora las rutas de las tres máquinas, y las conexiones activas de cada una.
 
+![Rutas de Linux](screenshots/screenshot-49-route_linux.png)
+
+![Rutas de W2008](screenshots/screenshot-50-route_w2008.png)
+
+![Rutas de WXP](screenshots/screenshot-51-route_wxp.png)
+
+Al hacer *ping* desde las tres máquinas al exterior, comprobamos que solo W2008 tiene conexión a Internet.
+
+Ejecutamos la orden *ipconfig /all* y determinamos que la dirección del servidor DHCP es *10.0.2.2*.
