@@ -544,3 +544,9 @@ Anotamos ahora las rutas de las tres máquinas, y las conexiones activas de cada
 Al hacer *ping* desde las tres máquinas al exterior, comprobamos que solo W2008 tiene conexión a Internet.
 
 Ejecutamos la orden *ipconfig /all* y determinamos que la dirección del servidor DHCP es *10.0.2.2*.
+
+
+## Segunda parte. Instalación del rol DHCP en el servidor Windows
+
+En esta segunda parte configuramos W2008 para que tenga el rol de *Servidor DHCP*.
+
