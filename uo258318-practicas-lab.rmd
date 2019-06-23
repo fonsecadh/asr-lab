@@ -602,3 +602,18 @@ Establecemos la ruta por defecto en Windows con la orden *route add 0.0.0.0 mask
 Comprobamos con la orden *ping www.lukesmith.xyz* que tenemos conexión a Internet desde las tres máquinas.
 
 ![Orden *ping www.lukesmith.xyz* en Linux](screenshots/screenshot-58-linux_internet_access.png)
+
+
+## Cuarta parte. Opciones en el servidor de configuración DHCP.
+
+Apagamos las máquinas clientes y las volvemos a arrancar. Observaremos que las rutas por defecto vuelven a ser incorrectamente *192.168.56.1*.
+
+Para arreglar el problema, entraremos en la administración del servidor DHCP e indicaremos en la opción "Enrutador" que la puerta de enlace es *192.168.56.100* en vez de la indicada anteriormente, que era *192.168.56.1*.
+
+![Nueva puerta de enlace en el servidor DHCP](screenshots/screenshot-59-routing_new_ip.png)
+
+Reiniciamos los clientes para que reciban por DHCP la dirección IP junto con la dirección correcta de la puerta de enlace de la ruta por defecto.
+
+Observamos que la tabla de rutas es correcta y que de nuevo tenemos acceso al exterior, como vemos en la siguiente captura de la máquina Linux done se ejecutó la orden *ping www.crunchyroll.com*.
+
+![Orden *ping www.crunchyroll.com* en Linux](screenshots/screenshot-60-linux_crunchyroll.png)
