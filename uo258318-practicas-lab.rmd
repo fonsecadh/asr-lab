@@ -550,3 +550,18 @@ Ejecutamos la orden *ipconfig /all* y determinamos que la dirección del servido
 
 En esta segunda parte configuramos W2008 para que tenga el rol de *Servidor DHCP*.
 
+Configuramos ahora Linux para que reciba una dirección de un servidor DHCP. 
+
+Ejecutaremos la orden *ip route list* que nos devuelve la siguiente información.
+
+![Rutas de Linux después de que reciba una dirección de un servidor DHCP](screenshots/screenshot-52-route_linux_after_dhcp.png)
+
+No tenemos salida al exterior desde Linux pues el servidor W2008 aún no está funcionando como un router.
+
+Podemos sin embargo conectarnos a la dirección IP *192.168.56.100* desde Linux ya que identifica a la máquina W2008 que le proporciona a Linux servicio DHCP.
+
+Entramos en el servidor DHCP (W2008), y comprobamos que efectivamente está Linux en la lista de concesiones como se observa en la imagen.
+
+![Linux en la lista de concesiones](screenshots/screenshot-53-linux_from_w2008.png)
+
+
