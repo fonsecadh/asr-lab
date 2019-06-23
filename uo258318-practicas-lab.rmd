@@ -504,4 +504,33 @@ Para ello, realizaremos las siguientes acciones:
 - Habilitamos el enmascaramiento IP pasando el segundo adaptador a la zona interna del cortafuegos y activando el enmascarado en la zona pública.
 
 Comprobamos que en las máquinas Windows podemos hacer *ping* al servidor de nombres 8.8.8.8, pero al hacerlo con *www.google.es* se nos muestra un mensaje advirtiéndonos de que no se puede encontrar el nombre *www.google.es*.
+
+
+
+# Práctica 5
+
+Configuración de una intranet con servidor W2008R2
+
+## Primera parte. Conectividad con direcciones estáticas
  
+Arrancamos las tres máquinas y comprobamos que:
+
+- W2008 tiene acceso a Internet, ya que la orden *ping www.google.com* nos da respuesta.
+- Linux no tiene una IP asignada.
+- WXP tiene una IP aleatoria asignada.
+
+Asignaremos ahora la dirección estática *192.168.56.100* al interfaz de la máquina W2008 que no está configurado como NAT. La máscara de red es *255.255.255.0*. Dejaremos vacía la dirección de la puerta de enlace.
+
+Ahora, les asignamos la dirección IP estática *192.168.56.101* a la máquina Linux y *192.168.56.102* a la máquina WXP.
+
+Para asignarle la dirección IP estática a Linux, tendremos que seguir los siguientes pasos:
+
+- Orden *systemctl disable dhcpd.service* para desactivar el servicio DHCP.
+- Nos movemos a la carpeta */etc/sysconfig/network-scripts/*.
+- Orden *rm ifcfg-enp0s8*
+- Lo editamos y modificamos el parámetro *BOOTPROTO* a "none", y añadimos las líneas "IPADDR=192.168.56.101" y "NETMASK=255.255.255.0".
+- Orden *systemctl restart network.service*.
+
+Hacemos ping entre las tres máquinas, y observamos que recibimos respuesta al hacer ping entre W2008 y WXP y viceversa, entre W2008 y Linux y viceversa, y entre las máquinas WXP y Linux.
+
+
