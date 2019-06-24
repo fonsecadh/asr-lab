@@ -708,4 +708,12 @@ Arrancamos el servicio *httpd* con la orden *systemctl start httpd.service* y lo
 
 Añadimos una nueva regla al firewall para permitir las conexiones *http*, con las órdenes *firewall-cmd --permanent --add-service=http* y *firewall-cmd --reload*.
 
+Lanzamos un navegador en el WXP y accede a *http://www.midominio.local*, como observamos en la siguiente imagen.
+
+![URL *http://www.midominio.local* desde el navegador de WXP](screenshots/screenshot-70-wxp_browser.png)
+
+Ahora, desde Linux, creamos dentro del directorio */var/www/html* un archivo *index.html* y comprobamos que lo podemos visualizar desde *http://www.midominio.local* en el navegador de WXP.
+
+![URL *http://www.midominio.local* desde el navegador de WXP una vez creado el archivo *index.html*](screenshots/screenshot-71-index_html.png)
+
 
