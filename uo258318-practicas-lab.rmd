@@ -748,6 +748,6 @@ Sustituimos además la sección *<Directory "/var/www"> por la sección *<Direct
 
 Restauramos ahora el servicio *httpd*, asignamos el contexto *httpd_sys_content_t* a través de *chcon* con la orden *chcon -R -h -t httpd_sys_content_t /as/web* y comprobamos que la página *www.midominio.local* ha cambiado.
 
-
+![URL *http://www.midominio.local* desde el navegador de WXP, ahora leída desde */as/web*](screenshots/screenshot-73-as_web.png)
 
 
