@@ -654,7 +654,7 @@ Observamos que las máquinas cliente tienen acceso al exterior mediante la orden
 
 ## Segunda parte. Compartición de archivos y Samba.
 
-Creamos dos usuarios *asuser*, uno en W2008 desde el panel de control sin contraseña, y otro en Linux con la orden *adduser asuser* y con contraseña *tsundere*, utilizando el comando *passwd asuser* e insertando la nueva contraseña.
+Creamos dos usuarios *asuser*, uno en W2008 desde el panel de control con contraseña *sakura98Cardcaptor$*, y otro en Linux con la orden *adduser asuser* y con contraseña *tsundere*, utilizando el comando *passwd asuser* e insertando la nueva contraseña.
 
 Ahora, deberemos compartir la carpeta desde Linux y desde W2008. 
 
