@@ -664,6 +664,22 @@ En Linux, debemos instalar los paquetes *samba* y *samba-client* y configurar un
 
 ![Configurando Samba](screenshots/screenshot-64-samba.png)
 
+Ahora, arrancamos la máquina WXP para conectarnos a ambos recursos compartidos desde *Mis sitios de Red*.
 
+Primero nos conectamos a Linux, con la dirección *\\192.168.56.110\asuser*, y creamos un archivo *Neon Genesis Evangelion.txt*.
+
+![Archivo *Neon Genesis Evangelion.txt* desde WXP](screenshots/screenshot-65-evangelion_from_wxp.png)
+
+Vemos que desde Linux podemos comprobar que el archivo existe, mediante la orden *cat* al archivo, como se observa en la captura.
+
+![Archivo *Neon Genesis Evangelion.txt* desde Linux](screenshots/screenshot-66-evangelion_from_linux.png)
+
+Luego nos conectamos a W2008, con la dirección *\\192.168.56.100\Users\asuser*.
+
+![Carpeta compartida del usuario de W2008 desde WXP](screenshots/screenshot-67-w2008_asuser_from_wxp.png)
+
+Podemos ahora observar que se nos muestran ambas carpetas compartidas desde WXP para uso futuro.
+
+![Ambas carpetas compartidas desde WXP](screenshots/screenshot-68-both_net_sites.png)
 
 
