@@ -751,3 +751,14 @@ Restauramos ahora el servicio *httpd*, asignamos el contexto *httpd_sys_content_
 ![URL *http://www.midominio.local* desde el navegador de WXP, ahora leída desde */as/web*](screenshots/screenshot-73-as_web.png)
 
 
+## B. ServerName
+
+Modificamos las directivas *ServerAdmin* y *ServerName* del fichero */etc/httpd/conf/httpd.conf* con nuestro email y con el nombre *www.midominio.local*.
+
+También deberemos hacer que el servidor escuche en el puerto 9999. Para ello, cambiamos el puerto 80 a 9999 en la directiva *Listen*, y cambiamos el nombre del servidor a *www.midominio.local:9999* en la directiva *ServerName*.
+
+Necesitamos añadirle una nueva regla al firewall de Linux, para ello, ejecutaremos la orden *firewall-cmd --zone=public --add-port=9999 /tcp*.
+
+Comprobamos que ahora desde WXP con la URL *http://www.midominio.local:9999* podemos visualizar la página.
+
+
