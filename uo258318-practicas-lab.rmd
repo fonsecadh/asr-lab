@@ -683,3 +683,29 @@ Podemos ahora observar que se nos muestran ambas carpetas compartidas desde WXP 
 ![Ambas carpetas compartidas desde WXP](screenshots/screenshot-68-both_net_sites.png)
 
 
+
+# Práctica 7
+
+**Servidores Web en Linux: Apache**
+
+## 1. Instalación
+
+Configuramos la máquina Linux para que tenga acceso a Internet a través del servidor W2008, como en la práctica anterior.
+
+Observamos que Linux tiene acceso a la red, y ejecutamos la orden *hostnamectl set-hostname linux.as.local*, que comprobamos con el comando *uname -a*.
+
+También comprobamos que se resuelve la dirección linux.as.local desde la máquina Linux y WXP.
+
+En la zona del servidor DNS añadimos *www.midominio.local* con la misma dirección IP que la máquina Linux.
+
+Comprobamos que tanto la máquina Linux como WXP resuelven correctamente la dirección asignada a *www.midominio.local*, como se observa en la siguiente captura de Linux.
+
+![Orden *ping www.midominio.local* desde Linux](screenshots/screenshot-69-midominio_local.png)
+
+Comprobamos que el Apache está instalado en la máquina Linux. No lo está, así que lo instalamos con la orden *yum install httpd*.
+
+Arrancamos el servicio *httpd* con la orden *systemctl start httpd.service* y lo hacemos que el servicio empiece al botar con la orden *systemctl enable httpd.service*.
+
+Añadimos una nueva regla al firewall para permitir las conexiones *http*, con las órdenes *firewall-cmd --permanent --add-service=http* y *firewall-cmd --reload*.
+
+
