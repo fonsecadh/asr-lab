@@ -633,7 +633,7 @@ La dirección MAC de WXP es *080027AD11A5*.
 Entraremos en el servidor DHCP y agregamos una reserva para Linux y WXP en las direcciones *192.168.56.110* y *192.168.56.111*.
 
 
-## Primera parte. DNS
+## Primera parte. DNS.
 
 En esta primera parte deberemos crear un servidor DNS en la máquina W2008.
 
@@ -650,5 +650,20 @@ Observamos que las máquinas cliente tienen acceso al exterior mediante la orden
 ![Orden *ping www.lukesmith.xyz* desde WXP](screenshots/screenshot-62-luke_wxp.png)
 
 ![Orden *ping www.lukesmith.xyz* desde Linux](screenshots/screenshot-63-luke_linux.png)
+
+
+## Segunda parte. Compartición de archivos y Samba.
+
+Creamos dos usuarios *asuser*, uno en W2008 desde el panel de control sin contraseña, y otro en Linux con la orden *adduser asuser* y con contraseña *tsundere*, utilizando el comando *passwd asuser* e insertando la nueva contraseña.
+
+Ahora, deberemos compartir la carpeta desde Linux y desde W2008. 
+
+En Windows, una vez iniciada sesión con el nuevo usuario, entramos en el menú contextual sobre su carpeta y le damos a *Compartir con... -> Todos*.
+
+En Linux, debemos instalar los paquetes *samba* y *samba-client* y configurar una serie de opciones, como vemos en la captura.
+
+![Configurando Samba](screenshots/screenshot-64-samba.png)
+
+
 
 
