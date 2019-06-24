@@ -422,7 +422,7 @@ Para finalizar se nos pide capturar el output de los comandos *lsblk -f* y *df -
 
 # Práctica 4
 
-Configuración de una intranet con un servidor Linux
+**Configuración de una intranet con un servidor Linux**
 
 ## Primera parte. Conectividad
 
@@ -509,7 +509,7 @@ Comprobamos que en las máquinas Windows podemos hacer *ping* al servidor de nom
 
 # Práctica 5
 
-Configuración de una intranet con servidor W2008R2
+**Configuración de una intranet con servidor W2008R2**
 
 ## Primera parte. Conectividad con direcciones estáticas
  
@@ -614,6 +614,33 @@ Para arreglar el problema, entraremos en la administración del servidor DHCP e 
 
 Reiniciamos los clientes para que reciban por DHCP la dirección IP junto con la dirección correcta de la puerta de enlace de la ruta por defecto.
 
-Observamos que la tabla de rutas es correcta y que de nuevo tenemos acceso al exterior, como vemos en la siguiente captura de la máquina Linux done se ejecutó la orden *ping www.crunchyroll.com*.
+Observamos que la tabla de rutas es correcta y que de nuevo tenemos acceso al exterior, como vemos en la siguiente captura de la máquina Linux donde se ejecutó la orden *ping www.crunchyroll.com*.
 
 ![Orden *ping www.crunchyroll.com* en Linux](screenshots/screenshot-60-linux_crunchyroll.png)
+
+
+
+# Práctica 6
+
+**DNS y Samba**
+
+Lo primero que se nos solicita es el apuntar las direcciones MAC de la máquina WXP y Linux.
+
+La dirección MAC de Linux es *080027C64FC6*.
+
+La dirección MAC de WXP es *080027AD11A5*.
+
+Entraremos en el servidor DHCP y agregamos una reserva para Linux y WXP en las direcciones *192.168.56.110* y *192.168.56.111*.
+
+
+## Primera parte. DNS
+
+En esta primera parte deberemos crear un servidor DNS en la máquina W2008.
+
+Creamos una zona de búsqueda directa principal *as.local* e inversa *192.168.56*.
+
+Damos de alta a las tres máquinas con nombres *w2008r2.as.local*, *wxp.as.local* y *linux.as.local*.
+
+Añadimos por último un reenviador no condicionado, en nuestro caso el *8.8.8.8*, que se encuentra en las propiedades del DNS *w2008r2*, como se observa en la captura.
+
+![Reenviador no condicionado](screenshots/screenshot-61-resender.png)
