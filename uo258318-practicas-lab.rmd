@@ -717,3 +717,20 @@ Ahora, desde Linux, creamos dentro del directorio */var/www/html* un archivo *in
 ![URL *http://www.midominio.local* desde el navegador de WXP una vez creado el archivo *index.html*](screenshots/screenshot-71-index_html.png)
 
 
+## 2. Configuración de las páginas web de los usuarios
+
+Editamos el fichero */etc/httpd/conf.d/userdir.conf* para que cada usuario pueda tener su propia página web.
+
+Aplicamos los permisos al directorio del usuario asuser con la orden *chmod 711 /home/asuser*.
+
+Ejecutamos la orden *setsebool -P httpd_read_user_content on* para permitir que Apache pueda leer contenidos localizados en los directorios de inicio de los usuarios locales.
+
+A continuación corremos la orden *setsebool -P httpd_enable_homedirs on* para habilitar el uso de los directorios *~/public_html* de los usuarios.
+
+Entramos en una terminal como el usuario *asuser* y creamos en nuestro directorio la carpeta */public_html*, y dentro de ella un fichero *index.html*. Aplicamos los permisos de acceso adecuados con la orden *chmod 755 -R public_html*.
+
+Reiniciamos el servicio *httpd* con la orden *systemctl restart httpd.service*.
+
+Por último, arrancamos la máquina WXP y entramos en la URL *http://www.midominio.local/~asuser*.
+
+
