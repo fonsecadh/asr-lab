@@ -734,3 +734,20 @@ Reiniciamos el servicio *httpd* con la orden *systemctl restart httpd.service*.
 Por último, arrancamos la máquina WXP y entramos en la URL *http://www.midominio.local/~asuser*.
 
 ![URL *http://www.midominio.local/~asuser* desde el navegador de WXP](screenshots/screenshot-72-asuser_mainpage.png)
+
+
+## 3. Configuración del servidor Apache
+
+### A. Ubicación
+
+Crearemos una nueva ubicación para la página web. Para ello crearemos el directorio */as/web* y copiaremos en ella el fichero *index.html* con la orden *cat /var/www/html/index.html >> index.html* (También se podría haber utilizado el comando *cp*).
+
+Editaremos el archivo de configuración presente en */etc/httpd/conf/httpd.conf* para que la directiva *DocumentRoot* busque los documentos en el nuevo directorio */as/web*.
+
+Sustituimos además la sección *<Directory "/var/www"> por la sección *<Directory "/as/web">*, modificando también sus parámetros.
+
+Restauramos ahora el servicio *httpd*, asignamos el contexto *httpd_sys_content_t* a través de *chcon* con la orden *chcon -R -h -t httpd_sys_content_t /as/web* y comprobamos que la página *www.midominio.local* ha cambiado.
+
+
+
+
