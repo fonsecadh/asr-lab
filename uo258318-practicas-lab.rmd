@@ -644,3 +644,11 @@ Damos de alta a las tres máquinas con nombres *w2008r2.as.local*, *wxp.as.local
 Añadimos por último un reenviador no condicionado, en nuestro caso el *8.8.8.8*, que se encuentra en las propiedades del DNS *w2008r2*, como se observa en la captura.
 
 ![Reenviador no condicionado](screenshots/screenshot-61-resender.png)
+
+Observamos que las máquinas cliente tienen acceso al exterior mediante la orden *ping www.lukesmith.xyz*.
+
+![Orden *ping www.lukesmith.xyz* desde WXP](screenshots/screenshot-62-luke_wxp.png)
+
+![Orden *ping www.lukesmith.xyz* desde Linux](screenshots/screenshot-63-luke_linux.png)
+
+
