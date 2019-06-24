@@ -763,3 +763,27 @@ Comprobamos que ahora desde WXP con la URL *http://www.midominio.local:9999* pod
 
 ![URL *http://www.midominio.local:9999* desde el navegador de WXP](screenshots/screenshot-74-port_9999.png)
 
+Volvemos a dejar al servidor escuchando en el puerto 80.
+
+
+## C. Repositorios
+
+Renombramos el archivo *index.html* a *índice.html*. Recargamos la página para que se borre la cache y al consultar de nuevo *www.midominio.local* vemos que se nos muestra la página de *Testing 123...* ya que no se está buscando una archivo *index.html* que no existe.
+
+![URL *http://www.midominio.local* desde el navegador de WXP: *Testing 123...*](screenshots/screenshot-75-indice_html.png)
+
+Editamos el fichero */etc/httpd/conf.d/welcome.conf* y comentamos todas las líneas. Con ello desactivamos la presentación de la página de *Testing 123...* para el caso de que no se encuentre el fichero *index.html*.
+
+Restauramos de nuevo el servicio *httpd* y vemos que se nos muestra un error advirtiéndonos de que el acceso está restringido.
+
+![URL *http://www.midominio.local* desde el navegador de WXP: *Forbidden*](screenshots/screenshot-76-forbidden.png)
+
+Modificamos la sección que creamos anteriormente para */as/web*, cambiando la primera línea por *Options Indexes FollowSymLinks*.
+
+Volvemos a restaurar el servicio, recargamos la página y comprobamos que ahora podemos visualizar el contenido de los directorios.
+
+![URL *http://www.midominio.local* desde el navegador de WXP: *Contenido de los directorios*](screenshots/screenshot-77-index_of.png)
+
+Hacemos desde el navegador de WXP un acceso a una página no existente dentro de nuestro dominio, y en Linux al acceder al fichero de log en */var/log/httpd/access_log* observaremos el intento de acceso (Petición GET) a la página no existente */evangelion*, como se ve en la captura.
+
+![Contenido de */var/log/httpd/access_log*](screenshots/screenshot-78-access_log.png)
