@@ -733,4 +733,4 @@ Reiniciamos el servicio *httpd* con la orden *systemctl restart httpd.service*.
 
 Por último, arrancamos la máquina WXP y entramos en la URL *http://www.midominio.local/~asuser*.
 
-
+![URL *http://www.midominio.local/~asuser* desde el navegador de WXP](screenshots/screenshot-72-asuser_mainpage.png)
