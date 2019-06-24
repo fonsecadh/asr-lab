@@ -761,4 +761,5 @@ Necesitamos añadirle una nueva regla al firewall de Linux, para ello, ejecutare
 
 Comprobamos que ahora desde WXP con la URL *http://www.midominio.local:9999* podemos visualizar la página.
 
+![URL *http://www.midominio.local:9999* desde el navegador de WXP](screenshots/screenshot-74-port_9999.png)
 
