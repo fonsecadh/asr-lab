@@ -137,7 +137,7 @@ Introducimos el disco de instalación y botamos en modo de rescate. Corremos la 
 
 ![Modo de rescate](screenshots/screenshot-13-rescue.png)
 
-Apagamos el equipo y extraemos el disco de instalación. Al arrancarlo la primera vez el sistema no llegó a botar correctamente y se nos devuelve al menú de GRUB, pero en esta seguna ocasión la máquina inicia sin problemas y se nos pide el usuario y contraseña como es habitual.
+Apagamos el equipo y extraemos el disco de instalación. Al arrancarlo la primera vez el sistema no llegó a botar correctamente y se nos devuelve al menú de GRUB, pero en esta segunda ocasión la máquina inicia sin problemas y se nos pide el usuario y contraseña como es habitual.
 
 ### 3.
 
@@ -444,7 +444,7 @@ Ahora configuraremos esta máquina realizando los siguientes pasos:
 - Copiamos el archivo *ifcfg-enp0s3* a *ifcfg-enp0s8*
 - Editamos *ifcfg-enp0s8* para cambiar *enp0s3* por *enp0s8*.
 - Cambiamos en ese archivo el parámetro *UUID* por la string anotada previamente.
-- Comprobamos que tanto en *ifcfg-enp0s3* campo*ifcfg-enp0s8* el parámetro *ONBOOT* debe campo.
+- Comprobamos que tanto en *ifcfg-enp0s3* como en *ifcfg-enp0s8* el parámetro *ONBOOT* debe ser *yes*.
 - Reiniciamos el servicio de red con *systemctl restart network.service*.
 
 Hecho esto, pasamos a la máquina Windows 2008, cuya dirección *IP* es *192.168.56.102*. No tiene asociadas *DNS*, puerta de enlace ni ruta por defecto.
@@ -455,7 +455,7 @@ La máquina Linux si tiene acceso a Internet ya que cuenta con un adaptador *NAT
 Instalamos el paquete *bind-utils* con la orden *yum install bind-utils*, y ejecutamos el comando *nslookup horru.lsi.uniovi.es*.
 Con esto comprobaremos que Linux sí puede resolver nombres, siendo el DNS *212.89.28.19*.
 
-Ahora, deberemos añadirle un servidor secundario *156.35.14.2*, editando el archivo */etc/resolv.conf* y añadiendo la línea "nameserver 8.8.8.8".
+Ahora, deberemos añadirle un servidor secundario *8.8.8.8*, editando el archivo */etc/resolv.conf* y añadiendo la línea "nameserver 8.8.8.8".
 
 
 ## Segunda parte. Servidor DHCP.
@@ -508,7 +508,7 @@ Para ello, realizaremos las siguientes acciones:
 
 Comprobamos que en las máquinas Windows podemos hacer *ping* al servidor de nombres 8.8.8.8, pero al hacerlo con *www.google.es* se nos muestra un mensaje advirtiéndonos de que no se puede encontrar el nombre *www.google.es*.
 
-A continuación se muestra un dibujo de la topología actual de red.
+En la figura 49 se muestra un dibujo de la topología actual de red.
 
 ![Topología de red](screenshots/asr-topology.png)
 
