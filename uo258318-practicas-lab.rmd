@@ -787,3 +787,34 @@ Volvemos a restaurar el servicio, recargamos la página y comprobamos que ahora 
 Hacemos desde el navegador de WXP un acceso a una página no existente dentro de nuestro dominio, y en Linux al acceder al fichero de log en */var/log/httpd/access_log* observaremos el intento de acceso (Petición GET) a la página no existente */evangelion*, como se ve en la captura.
 
 ![Contenido de */var/log/httpd/access_log*](screenshots/screenshot-78-access_log.png)
+
+
+
+# Práctica 8
+
+**Servidor de bases de datos (MySQL/MariaDB) y Content Management System (WordPress, Joomla) sobre XAMPP**
+
+## Parte 1. Obligatoria.
+
+Queremos montar un CMS ligero (WordPress) en el servidor Windows y uno mediano (Joomla) en el servidor Linux.
+
+Empezamos con el servidor W2008, realizando los siguientes pasos.
+
+
+### Guía de instalación de Wordpress en W2008
+
+- Descargamos XAMPP *7.3.6* desde *https://www.apachefriends.org/* y lo instalamos en nuestra máquina.
+- Instalamos desde el *Panel de Control* de XAMPP los módulos de *Apache*, *MySQL* and *FileZilla*.
+- Descargamos Wordpress *5.2.2* desde *https://es.wordpress.org/download/*.
+- Creamos una base de datos vacía en MySQL llamada *wordpresssb* desde XAMPP.
+- Descomprimimos el *zip* con Wordpress en la carpeta *\xampp\htdocs\wordpress*.
+- Vamos a la dirección *localhost/wordpress/* en nuestro navegador y comenzamos la instalación. Tendremos que especificar que la base de datos es la creada en XAMPP previamente.
+- Una vez terminada la instalación, accedemos con el usuario y contraseña de admin que hemos creado durante la fase de instalación.
+- Vamos al apartado *Apariencia* e instalamos el tema *Mesmerice* desde el *MarketPlace*. Una vez instalado, lo activamos.
+
+Se puede observar en la siguiente captura que nuestro sitio web ya tiene la apariencia del nuevo tema *Mesmerice*.
+
+![Wordpress con el tema *Mesmerice*](screenshots/screenshot-79-wordpress_mesmerice.png)
+
+
+### Guía de mantenimiento de Wordpress en W2008
