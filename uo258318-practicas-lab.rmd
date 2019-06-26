@@ -818,3 +818,18 @@ Se puede observar en la siguiente captura que nuestro sitio web ya tiene la apar
 
 
 ### Guía de mantenimiento de Wordpress en W2008
+
+- Si queremos añadir una nueva entrada en el blog, tendremos que ir al apartado *Entradas*. En este apartado podremos crear, eliminar y editar entradas de nuestro sitio web.
+- Si queremos cambiar el título de
+ la página, al visitar el sitio observaremos que arriba tendremos una opción *Personalizar*, con la que podremos personalizar los títulos y subtítulos de la página.
+- También podremos cambiar la estructura y bloques de la página desde la opción *Personalizar* mencionada en el párrafo anterior.
+- Para añadir una nueva página tendremos que ir al apartado *Páginas*, que permite crear, eliminar y modificar páginas.
+
+A continuación se muestran capturas de la página principal del sitio web, la entrada *Mil razones por las que deberías usar software libre* y la página *Acerca de...*.
+
+![Página principal](screenshots/screenshot-80-main_page.png)
+
+![Página *Acerca de...*](screenshots/screenshot-81-about.png)
+
+![Entrada *Mil razones por las que deberías usar software libre*](screenshots/screenshot-82-software_libre.png)
+
