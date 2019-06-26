@@ -505,6 +505,10 @@ Para ello, realizaremos las siguientes acciones:
 
 Comprobamos que en las máquinas Windows podemos hacer *ping* al servidor de nombres 8.8.8.8, pero al hacerlo con *www.google.es* se nos muestra un mensaje advirtiéndonos de que no se puede encontrar el nombre *www.google.es*.
 
+A continuación se muestra un dibujo de la topología actual de red.
+
+![Topología de red](screenshots/asr-topology)
+
 
 
 # Práctica 5
