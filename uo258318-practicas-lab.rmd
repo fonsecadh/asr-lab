@@ -1,7 +1,10 @@
 ---
-title: "Prácticas de laboratorio de Administración de Sistemas y Redes - UO258318"
+title: "Prácticas de laboratorio de Administración de Sistemas y Redes "
 author: Hugo Fonseca Díaz (UO258318)
-output: pdf_document
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 2
 ---
 
 # Práctica 1
@@ -670,7 +673,7 @@ En Linux, debemos instalar los paquetes *samba* y *samba-client* y configurar un
 
 Ahora, arrancamos la máquina WXP para conectarnos a ambos recursos compartidos desde *Mis sitios de Red*.
 
-Primero nos conectamos a Linux, con la dirección *\\192.168.56.110\asuser*, y creamos un archivo *Neon Genesis Evangelion.txt*.
+Primero nos conectamos a Linux, con la dirección *//192.168.56.110/asuser*, y creamos un archivo *Neon Genesis Evangelion.txt*.
 
 ![Archivo *Neon Genesis Evangelion.txt* desde WXP](screenshots/screenshot-65-evangelion_from_wxp.png)
 
@@ -678,7 +681,7 @@ Vemos que desde Linux podemos comprobar que el archivo existe, mediante la orden
 
 ![Archivo *Neon Genesis Evangelion.txt* desde Linux](screenshots/screenshot-66-evangelion_from_linux.png)
 
-Luego nos conectamos a W2008, con la dirección *\\192.168.56.100\Users\asuser*.
+Luego nos conectamos a W2008, con la dirección *//192.168.56.100/Users/asuser*.
 
 ![Carpeta compartida del usuario de W2008 desde WXP](screenshots/screenshot-67-w2008_asuser_from_wxp.png)
 
@@ -811,7 +814,7 @@ Empezamos con el servidor W2008, realizando los siguientes pasos.
 - Instalamos desde el *Panel de Control* de XAMPP los módulos de *Apache*, *MySQL* and *FileZilla*.
 - Descargamos Wordpress *5.2.2* desde *https://es.wordpress.org/download/*.
 - Creamos una base de datos vacía en MySQL llamada *wordpresssb* desde XAMPP.
-- Descomprimimos el *zip* con Wordpress en la carpeta *\xampp\htdocs\wordpress*.
+- Descomprimimos el *zip* con Wordpress en la carpeta */xampp/htdocs/wordpress*.
 - Vamos a la dirección *localhost/wordpress/* en nuestro navegador y comenzamos la instalación. Tendremos que especificar que la base de datos es la creada en XAMPP previamente.
 - Una vez terminada la instalación, accedemos con el usuario y contraseña de admin que hemos creado durante la fase de instalación.
 - Vamos al apartado *Apariencia* e instalamos el tema *Mesmerice* desde el *MarketPlace*. Una vez instalado, lo activamos.
