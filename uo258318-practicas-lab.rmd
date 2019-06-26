@@ -833,3 +833,28 @@ A continuación se muestran capturas de la página principal del sitio web, la e
 
 ![Entrada *Mil razones por las que deberías usar software libre*](screenshots/screenshot-82-software_libre.png)
 
+
+## Guía de instalación de Joomla en Linux
+
+- Desde la máquina Linux, orden *yum install wget*.
+- Descargamos *XAMPP 7.3.6* con la orden *wget https://www.apachefriends.org/xampp-files/7.3.6/xampp-linux-x64-7.3.6-2-installer.run*.
+- Hacemos el archivo ejecutable con la orden *chmod +x xampp-linux-x64-7.3.6-2-installer.run*.
+- Corremos el archivo con la orden *./xampp-linux-x64-7.3.6-2-installer.run*.
+- Nos movemos al directorio */opt/lampp/htdocs/*.
+- Creamos un directorio */htdocs/joomla*.
+- Descargamos *Joomla 3.9.8* con la orden *wget https://downloads.joomla.org/es/cms/joomla3/3-9-8/Joomla_3-9-9-Stable-Full_Package.zip*.
+- Instalamos los paquetes *zip y unzip*.
+- Descomprimimos el paquete de *Joomla 3.9.8* en el directorio */htdocs/joomla*.
+- Instalamos el paquete *net-tools*.
+- Cambiamos el puerto de escucha del servicio *httpd* en */etc/httpd/conf/httpd.conf* para que no sea el puerto 80.
+- En la carpeta */opt/lampp* ejecutamos la orden *./lampp restart*, y nos debería mostrar *ok* en *Apache*, *MySQL* y *ProFTPD*.
+- Modificamos el archivo */opt/lampp/etc/extra/httpd-xampp.conf* y en la entrada *Directory "/opt/lampp/phpmyadmin"* cambiamos el parámetro *Require local* por *Require all granted*. Ésto permite que nos podamos conectar a *phpmyadmin* desde el exterior.
+- Volvemos a correr la orden *./lampp restart* desde el directorio */opt/lampp*.
+- Corremos la orden *chmod -R 777 joomla/* desde el directorio */opt/lampp/htdocs*.
+- Desde el navegador del equipo W2008 nos conectamos a la dirección *httpd://192.168.56.110/phpmyadmin* y creamos una nueva base de datos *joomladb* (Se puede escoger cualquier nombre para la base de datos).
+- Desde el mismo navegador entramos en *httpd://192.168.56.110/joomla* y comenzamos la instalación de Joomla.
+
+
+## Guía de mantenimiento de Joomla en Linux
+
+
