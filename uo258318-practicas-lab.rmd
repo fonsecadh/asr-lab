@@ -857,4 +857,11 @@ A continuación se muestran capturas de la página principal del sitio web, la e
 
 ## Guía de mantenimiento de Joomla en Linux
 
+- Si queremos añadir un nuevo artículo en el blog, deberemos entrar en el apartado *Articles*, dentro de *Content*.
+- También podremos crear una categoría en el apartado *Categories*, también dentro de *Content*. Puede sernos útil a la hora de clasificar artículos según su temática.
+- Lo siguiente será fijarnos en el apartado *Menus*, donde podremos crear menús con sus módulos, eliminarlos y editarlos.
+- Por último, para cambiar la plantilla de nuestro sitio web, deberemos ir al apartado *Extensions*. Allí, en el subapartado *Manage*, podremos subir un comprimido con la plantilla deseada. Para asignar la nueva plantilla, tendremos que ir al subapartado *Templates*, y dentro a *Styles*.
 
+En la siguiente imagen se puede apreciar la página principal de nuestro sitio web, con la plantilla *JSN Glass 2*.
+
+![Página principal de nuestro sitio web hecho con Joomla](screenshots/screenshot-83-joomla.png)
