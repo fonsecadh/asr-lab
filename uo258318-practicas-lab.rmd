@@ -507,7 +507,7 @@ Comprobamos que en las máquinas Windows podemos hacer *ping* al servidor de nom
 
 A continuación se muestra un dibujo de la topología actual de red.
 
-![Topología de red](screenshots/asr-topology)
+![Topología de red](screenshots/asr-topology.png)
 
 
 
